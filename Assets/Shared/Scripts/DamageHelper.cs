@@ -12,9 +12,9 @@ namespace Shared.Scripts
     {
     #region Public Methods
 
-        public static void DealDamage(Vector2 position)
+        public static void DealDamage(Vector2 position , Vector2 range)
         {
-            var damageables = CastHelper.Cast(position , Vector2.one);
+            var damageables = CastHelper.Cast(position , range);
             Debug.Log($"damageables count: {damageables.Count()}");
             damageables.ForEach(damageable => Debug.Log($"{damageable}"));
         }

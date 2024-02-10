@@ -17,7 +17,7 @@ namespace Shared.Scripts
         [ContextMenu("Cast")]
         private void Cast()
         {
-            DamageHelper.DealDamage(transform.position);
+            DamageHelper.DealDamage(transform.position , Vector2.one);
         }
 
         /// <summary>
