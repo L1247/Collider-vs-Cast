@@ -35,7 +35,7 @@ namespace Shared.Scripts
             damageRemainingTime -= Time.deltaTime;
             if (damageRemainingTime > 0) return;
             ResetTimer();
-            if (useCast) DealDamageTo(CastHelper.Cast(transform.position , Vector2.one));
+            if (useCast) DamageHelper.DealDamage(transform.position);
             else DealDamageTo(damageables);
         }
 

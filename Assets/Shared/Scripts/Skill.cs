@@ -1,6 +1,5 @@
 #region
 
-using System.Linq;
 using rStarUtility.Util.Extensions.Csharp;
 using UnityEngine;
 
@@ -18,9 +17,7 @@ namespace Shared.Scripts
         [ContextMenu("Cast")]
         private void Cast()
         {
-            var damageables = CastHelper.Cast(transform.position , Vector2.one);
-            Debug.Log($"damageables count: {damageables.Count()}");
-            damageables.ForEach(damageable => Debug.Log($"{damageable}"));
+            DamageHelper.DealDamage(transform.position);
         }
 
         /// <summary>
