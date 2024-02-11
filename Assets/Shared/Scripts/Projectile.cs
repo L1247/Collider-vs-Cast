@@ -19,6 +19,8 @@ namespace Shared.Scripts
 
         private Vector2 range;
 
+        private float HalfSpriteWidth => transform.localScale.x / 2;
+
         // 100 會先移動下一幀才偵測
         // 180 穿過敵人，不觸發傷害
         [SerializeField]
@@ -44,7 +46,7 @@ namespace Shared.Scripts
             // rigidbody2D.position += movement.ToVector2();
 
             range   = Vector2.one;
-            range.x = transform.position.x - lastPosition.x;
+            range.x = transform.position.x - lastPosition.x + HalfSpriteWidth;
             Vector2 castPos = transform.position;
             castPos.x = lastPosition.x + range.x / 2; // center point
             // Debug.Log($"{castPos} , {range} , {transform.position} , {lastPosition}");
@@ -59,7 +61,8 @@ namespace Shared.Scripts
         private void OnDrawGizmos()
         {
             // rect position start from bottom left side
-            var rect = new Rect(transform.position.ToVector2() - range.SetY(range.y / 2) , range);
+            var position = transform.position.ToVector2() - range.SetY(range.y / 2) + HalfSpriteWidth * Vector2.right;
+            var rect     = new Rect(position , range);
             Handles.DrawSolidRectangleWithOutline(rect , Color.red.WithA(0.1f) , Color.black);
         }
 
