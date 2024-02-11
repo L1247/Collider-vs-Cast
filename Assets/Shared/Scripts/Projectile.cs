@@ -37,10 +37,11 @@ namespace Shared.Scripts
         private void Update()
         {
             // move by transform
-            transform.position += Vector3.right * (Time.deltaTime * moveSpeed);
+            var movement = Vector3.right * (Time.deltaTime * moveSpeed);
+            transform.position += movement;
             // move by physics 
             // 間接 move by transform 
-            // rigidbody2D.position += Vector2.right * (Time.deltaTime * moveSpeed);
+            // rigidbody2D.position += movement.ToVector2();
 
             range   = Vector2.one;
             range.x = transform.position.x - lastPosition.x;
