@@ -60,7 +60,7 @@ namespace Shared.Scripts
 
         private void OnDrawGizmos()
         {
-            // rect position start from bottom left side
+            // rect position start from top left side
             var position = transform.position.ToVector2() - range.SetY(range.y / 2) + HalfSpriteWidth * Vector2.right;
             var rect     = new Rect(position , range);
             Handles.DrawSolidRectangleWithOutline(rect , Color.red.WithA(0.1f) , Color.black);
