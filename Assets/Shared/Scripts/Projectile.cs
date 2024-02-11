@@ -58,13 +58,13 @@ namespace Shared.Scripts
 
     #region Private Methods
 
-        private void OnDrawGizmos()
-        {
-            // rect position start from bottom left side
-            var position = transform.position.ToVector2() - range.SetY(range.y / 2) + HalfSpriteWidth * Vector2.right;
-            var rect     = new Rect(position , range);
-            Handles.DrawSolidRectangleWithOutline(rect , Color.red.WithA(0.1f) , Color.black);
-        }
+        // private void OnDrawGizmos()
+        // {
+        //     // rect position start from bottom left side
+        //     var position = transform.position.ToVector2() - range.SetY(range.y / 2) + HalfSpriteWidth * Vector2.right;
+        //     var rect     = new Rect(position , range);
+        //     Handles.DrawSolidRectangleWithOutline(rect , Color.red.WithA(0.1f) , Color.black);
+        // }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
