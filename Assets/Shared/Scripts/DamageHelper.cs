@@ -15,7 +15,7 @@ namespace Shared.Scripts
 
         public static void DealDamage(Vector2 position , Vector2 range)
         {
-            var damageables = CastHelper.OverlapBoxAll<Damageable>(position , range);
+            var damageables = CastHelper.GetAllWithBox<Damageable>(position , range);
             Debug.Log($"damageables count: {damageables.Count()}");
             damageables.ForEach(damageable => Debug.Log($"{damageable}"));
         }
